@@ -1,11 +1,15 @@
-<h2 class="sr-only">TRAJECTORY SIMULATIONS</h2>
+<h2 style="text-align: center; font-size: 18px; font-weight: 500; margin: 0 0 1rem;">Trajectory simulations</h2>
 
-<div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; border: 0.5px solid var(--border);">
-  <iframe id="mainPlayer" src="https://www.youtube.com/embed/u9ginFlW0I0" style="width: 100%; height: 100%; border: 0;" allow="autoplay" allowfullscreen></iframe>
+<div style="display: flex; gap: 12px; align-items: flex-start;">
+  <div style="flex: 3; min-width: 0;">
+    <div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; border: 0.5px solid var(--border);">
+      <iframe id="mainPlayer" src="https://www.youtube.com/embed/u9ginFlW0I0" style="width: 100%; height: 100%; border: 0;" allow="autoplay" allowfullscreen></iframe>
+    </div>
+    <p id="mainLabel" style="font-size: 14px; color: var(--text-secondary); margin: 8px 0 0;">Now playing: trajectory 1</p>
+  </div>
+
+  <div id="thumbGrid" style="flex: 1; display: flex; flex-direction: column; gap: 10px; min-width: 90px;"></div>
 </div>
-<p id="mainLabel" style="font-size: 14px; color: var(--text-secondary); margin: 8px 0 1.25rem;">Now playing: trajectory 1</p>
-
-<div id="thumbGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px;"></div>
 
 <script>
 const videos = [
@@ -24,7 +28,7 @@ videos.forEach((v) => {
   cell.style.cursor = 'pointer';
   cell.innerHTML = `
     <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" style="width: 100%; aspect-ratio: 16/9; border-radius: var(--radius); border: 0.5px solid var(--border); object-fit: cover; display: block;" />
-    <p style="font-size: 13px; margin: 6px 0 0; text-align: center; color: var(--text-secondary);">${v.label}</p>
+    <p style="font-size: 12px; margin: 4px 0 0; text-align: center; color: var(--text-secondary);">${v.label}</p>
   `;
   cell.addEventListener('click', () => {
     main.src = `https://www.youtube.com/embed/${v.id}?autoplay=1`;
